@@ -1,9 +1,8 @@
 package by.pizzatempo;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
@@ -15,17 +14,16 @@ public class LoginTest extends BaseTest {
         loginPage.clickButtonPizza();
     }
 
-    @Test
-    @DisplayName("Зайти в раздел 'Пиццы', выбрать пиццу 'Маргарита', " +
+    @Test(testName = "Зайти в раздел 'Пиццы', выбрать пиццу 'Маргарита', " +
             "выбрать любой размер, добавить в корзину, проверить, " +
             "что пицца есть в заказе")
     public void test1() {
         loginPage
                 .clickButtonToOrder()
                 .clickButtonChooseSize()
-                .clickButtonToOrder()
+                .clickButtonToOrder2()
                 .clickButtonBasket();
 
-        Assertions.assertEquals(LoginMessage.TEXT_PIZZA_MARGHERITA, loginPage.getTextPizzaMargherita());
+        Assert.assertEquals(loginPage.getTextPizzaMargherita(), LoginMessage.TEXT_PIZZA_MARGHERITA);
     }
 }
