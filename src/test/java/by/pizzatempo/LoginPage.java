@@ -38,4 +38,18 @@ public class LoginPage {
     public String getTextPizzaMargherita() {
         return webDriver.findElement(By.xpath(LoginXpath.TEXT_PIZZA_MARGHERITA_XPATH)).getText();
     }
+
+    public LoginPage clickButtonDrinks() {
+        webDriver.findElement(By.xpath(LoginXpath.BUTTON_DRINKS_XPATH)).click();
+        return this;
+    }
+
+    public LoginPage clickButtonToOrderFanta() {
+        webDriver.findElement(By.xpath(LoginXpath.BUTTON_TO_ORDER_FANTA_XPATH)).click();
+        return this;
+    }
+
+    public String getTextFanta() {
+        return webDriver.findElement(By.xpath(LoginXpath.TEXT_FANTA_XPATH)).getText();
+    }
 }
