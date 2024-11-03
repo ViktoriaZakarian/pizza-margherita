@@ -25,6 +25,11 @@ public class LoginPage {
         return this;
     }
 
+    public LoginPage clickButtonToOrder2() {
+        webDriver.findElement(By.xpath(LoginXpath.BUTTON_TO_ORDER_2_XPATH)).click();
+        return this;
+    }
+
     public LoginPage clickButtonBasket() {
         webDriver.findElement(By.xpath(LoginXpath.BUTTON_BASKET_XPATH)).click();
         return this;
