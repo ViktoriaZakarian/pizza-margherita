@@ -4,13 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest {
+public class PizzaTest extends BaseTest {
 
-    private LoginPage loginPage;
+    private PizzaPage loginPage;
 
     @BeforeMethod
     public void setLoginPage() {
-        loginPage = new LoginPage(webDriver);
+        loginPage = new PizzaPage(webDriver);
         loginPage.clickButtonPizza();
     }
 
@@ -21,10 +21,10 @@ public class LoginTest extends BaseTest {
         loginPage
                 .clickButtonToOrder()
                 .clickButtonChooseSize()
-                .clickButtonToOrder2()
+                .clickButtonToConfirmOrder()
                 .clickButtonBasket();
 
-        Assert.assertEquals(loginPage.getTextPizzaMargherita(), LoginMessage.TEXT_PIZZA_MARGHERITA);
+        Assert.assertEquals(loginPage.getTextPizzaMargherita(), PizzaMessage.TEXT_PIZZA_MARGHERITA);
     }
 
     @Test(testName = "Добавить пиццу \"Маргариту\" любого размера в корзирну, добавить любой напиток в корзину, " +
@@ -33,12 +33,12 @@ public class LoginTest extends BaseTest {
         loginPage
                 .clickButtonToOrder()
                 .clickButtonChooseSize()
-                .clickButtonToOrder2()
+                .clickButtonToConfirmOrder()
                 .clickButtonDrinks()
                 .clickButtonToOrderFanta()
                 .clickButtonBasket();
 
-        Assert.assertEquals(loginPage.getTextPizzaMargherita(), LoginMessage.TEXT_PIZZA_MARGHERITA);
-        Assert.assertEquals(loginPage.getTextFanta(), LoginMessage.TEXT_FANTA);
+        Assert.assertEquals(loginPage.getTextPizzaMargherita(), PizzaMessage.TEXT_PIZZA_MARGHERITA);
+        Assert.assertEquals(loginPage.getTextFanta(), PizzaMessage.TEXT_FANTA);
     }
 }
